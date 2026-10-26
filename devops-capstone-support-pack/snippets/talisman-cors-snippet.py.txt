@@ -1,0 +1,8 @@
+# Integrate this into the existing service/__init__.py; do not replace the whole file.
+# Add the imports with the existing imports:
+from flask_cors import CORS
+from flask_talisman import Talisman
+
+# After app = Flask(__name__) and app.config.from_object(config):
+CORS(app)  # Configure allowed origins more narrowly for production.
+Talisman(app, force_https=False)  # Avoid HTTPS redirect in the training HTTP environment.
